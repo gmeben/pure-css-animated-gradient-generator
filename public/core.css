@@ -1,0 +1,130 @@
+:root {
+    --button-color-bg: #fcfcfc;
+    --button-color-border: #aaa;
+}
+body {
+    font-family: sans-serif;
+}
+.button {
+    background-color: var(--button-color-bg);
+    border-radius: 4px;
+    border: 1px solid var(--button-color-border);
+    cursor: pointer;
+    height: 36px;
+    padding-left: 40px;
+    padding-right: 40px;
+    transition: background-color 120ms ease;
+}
+.button:hover {
+    background: #c8e6c8;
+}
+.button:active {
+    box-shadow: 0 2px 6px #555 inset;
+    background-color: #999;
+}
+.button--add {
+    margin-left: 18px;
+    width: 220px;
+}
+.button--copy {
+    margin-top: 18px;
+    margin-bottom: 10px;
+}
+.generator {
+    animation: animateBg 14s linear infinite;
+    align-items: center;
+    display: flex;
+    padding-top: 2em;
+    box-sizing: border-box;
+    flex-direction: column;
+    min-height: 100vh;
+}
+.title {
+    max-width: 314px;
+    margin-top: 0;
+}
+.container {
+    background: #fff;
+    border-radius: 0.25em;
+    box-shadow: 0 3px 14px #000;
+    min-width: 20rem;
+    padding: 2em;
+}
+.label {
+    font-weight: 400;
+}
+.presets {
+    margin: 10px 0;
+}
+.preset {
+    background: gray;
+    border-radius: 2px;
+    border: 1px solid var(--button-color-border);
+    cursor: pointer;
+    display: inline-block;
+    height: 36px;
+    margin-right: 10px;
+    width: 36px;
+}
+.duration {
+    border-radius: 2px;
+    border: 1px solid var(--button-color-border);
+    display: inline-block;
+    height: 26px;
+    margin: 0 10px 10px;
+    text-align: center;
+    width: 50px;
+}
+.color-list {
+    list-style-position: inside;
+    padding: 0;
+}
+.color {
+    margin-bottom: 10px;
+}
+.color__input,
+.color__remove {
+    box-sizing: border-box;
+    cursor: pointer;
+    vertical-align: middle;
+}
+.color__input {
+    border: 0;
+    height: 36px;
+    padding: 0;
+    width: 220px;
+}
+.color__remove {
+    background-color: var(--button-color-bg);
+    border-color: var(--button-color-border);
+    border-radius: 0 10px 10px 0;
+    border-style: solid;
+    border-width: 1px 1px 1px 0;
+    display: inline-block;
+    height: 36px;
+    text-align: center;
+    transition: background-color 200ms ease;
+    width: 36px;
+}
+.color__remove:hover {
+    background-color: #dbd1d3;
+}
+.output {
+    background-color: #eee;
+    border-radius: 5px;
+    border: 1px solid var(--button-color-border);
+    font-family: Courier New;
+    height: 200px;
+    max-width: 314px;
+    padding: 5px;
+    width: 314px;
+    font-size: 12px;
+}
+@keyframes animateBg {
+    0% {
+        background-position: 0% 0%;
+    }
+    100% {
+        background-position: 100% 0%;
+    }
+}
