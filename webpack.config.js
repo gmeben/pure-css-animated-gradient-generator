@@ -21,9 +21,9 @@ const rules = [
 
 module.exports = {
     entry: path.join(__dirname, 'src', 'index.js'),
-    Output: {
+    output: {
         filename: 'bundle.js',
-        Path: path.resolve(__dirname, './build')
+        path: path.resolve(__dirname, './build')
     },
     module: {rules},
     plugins: [
