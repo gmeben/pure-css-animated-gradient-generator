@@ -21,6 +21,7 @@ function PresetsSection({parentFunction}) {
       <div className="presets">
         {items.map(item => (
           <Preset 
+            key={item}
             colorSeries={item.toString()}
             changePreset={() => parentFunction(item)}
             />
@@ -42,6 +43,7 @@ function ColorList({colorSet, removeFunction, changeFunction}) {
     <ol className="color-list">
       {colorSet.map((color, index) => (
         <ColorItem 
+          key={index}
           colorValue={color} 
           removeColor={() => removeFunction(index)} 
           changeColor={() => changeFunction(event, index)} />
