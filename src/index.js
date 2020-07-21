@@ -163,7 +163,7 @@ function Generator({title}) {
           </label>
         </div>
         <div>
-          <label forHtml="direction">
+          <label htmlFor="direction">
             <strong>Direction</strong>
             <select id="direction"
               className="input--textlike direction"
@@ -178,7 +178,7 @@ function Generator({title}) {
         <div className="dimensions">
           <strong>Dimensions</strong>
           <label className="dimensions__label" 
-            forHtml="dimensions-full-screen">
+            htmlFor="dimensions-full-screen">
             <input 
               id="dimensions-full-screen"
               type="radio" 
@@ -186,17 +186,17 @@ function Generator({title}) {
               className="dimensions__input"
               checked="checked"
               disabled="disabled"/>
-            <span class="dimensions__label-text">Full Screen</span>
+            <span className="dimensions__label-text">Full Screen</span>
           </label>
           <label className="dimensions__label" 
-            forHtml="dimensions-custom">
+            htmlFor="dimensions-custom">
             <input 
               id="dimensions-custom"
               type="radio" 
               name="dimensions" 
               className="dimensions__input"
               disabled="disabled"/>
-            <span class="dimensions__label-text">Custom</span>
+            <span className="dimensions__label-text">Custom</span>
           </label>
           <div>
             <input type="text" 
