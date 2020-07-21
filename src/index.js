@@ -140,17 +140,6 @@ function Generator({title}) {
           className="title">Pure CSS Animated Gradient Generator</h1>
         <PresetsSection 
           parentFunction={(item)=>{setColorSet(item)}}/>
-        <div>
-          <label htmlFor="duration">
-            <span>Duration (seconds)</span>
-            <input id="duration" 
-              className="duration" 
-              type="number" 
-              min="1" 
-              max="1000" 
-              {...duration}/>
-          </label>
-        </div>
         <button 
           type="button"
           className="button button--add"
@@ -159,6 +148,66 @@ function Generator({title}) {
           colorSet={colorSet} 
           removeFunction={(index)=> removeColor(index)}
           changeFunction={(event, index)=> changeColor(event, index)}/>
+          
+        <div>
+          <label htmlFor="duration">
+            <span><strong>Duration</strong> (seconds)</span>
+            <input id="duration" 
+              className="input--textlike duration" 
+              type="number" 
+              min="1" 
+              max="1000" 
+              {...duration}/>
+          </label>
+        </div>
+        <div>
+          <label forHtml="direction">
+            <strong>Direction</strong>
+            <select id="direction"
+              className="input--textlike direction"
+              disabled="disabled">
+              <option>&#129044; Left</option>
+              <option>&#129046; Right</option>
+              <option>&#129045; Up</option>
+              <option>&#129047; Down</option>
+            </select>
+          </label>
+        </div>
+        <div className="dimensions">
+          <strong>Dimensions</strong>
+          <label className="dimensions__label" 
+            forHtml="dimensions-full-screen">
+            <input 
+              id="dimensions-full-screen"
+              type="radio" 
+              name="dimensions" 
+              className="dimensions__input"
+              checked="checked"
+              disabled="disabled"/>
+            <span class="dimensions__label-text">Full Screen</span>
+          </label>
+          <label className="dimensions__label" 
+            forHtml="dimensions-custom">
+            <input 
+              id="dimensions-custom"
+              type="radio" 
+              name="dimensions" 
+              className="dimensions__input"
+              disabled="disabled"/>
+            <span class="dimensions__label-text">Custom</span>
+          </label>
+          <div>
+            <input type="text" 
+              className="input--textlike dimension" 
+              value={bgwidth + `vw`}
+              disabled="disabled"/>
+            <span>x</span>
+            <input type="text" 
+              className="input--textlike dimension" 
+              value={`100vh`}
+              disabled="disabled"/>
+          </div>
+        </div>
         <CopyToClipboardButton />
         <Output bg={bg} bgwidth={bgwidth} duration={duration.value}/>
       </article>

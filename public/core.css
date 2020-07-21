@@ -66,14 +66,34 @@ body {
     margin-right: 10px;
     width: 36px;
 }
-.duration {
+.input--textlike {
     border-radius: 2px;
     border: 1px solid var(--button-color-border);
     display: inline-block;
     height: 26px;
     margin: 0 10px 10px;
+}
+.direction {
+    width: 100px;
+}
+.duration {
     text-align: center;
     width: 50px;
+}
+.dimensions__label {
+    margin: 0 0 10px 16px;
+    display: inline-block;
+}
+.dimensions__label-text {
+    padding-left: 4px;
+    vertical-align: middle;
+}
+.dimensions__input {
+    vertical-align: middle;
+}
+.dimension {
+    text-align: center;
+    width: 60px;
 }
 .color-list {
     list-style-position: inside;
