@@ -79,23 +79,24 @@ function CopyToClipboardButton() {
       onClick={copy}>Copy to Clipboard</button>
   )
 }
-function getCode({bg, bgwidth, duration}) {
+function getCode({bg, bgwidth, bgheight, duration}) {
   return (`.animated-gradient {
   animation: animateBg ${duration}s linear infinite;
   background-image: linear-gradient(90deg,${bg});
-  background-size: ${bgwidth}vw 100vh;
+  background-size: ${bgwidth}vw ${bgheight}vh;
 }
 @keyframes animateBg
   0% { background-position: 0% 0%; }
   100% { background-position: 100% 0%; }
 }`)
 }
-function Output({bg, bgwidth, duration}) {
-  let code = getCode({bg, bgwidth, duration})
+function Output({bg, bgwidth, bgheight, duration}) {
+  let code = getCode({bg, bgwidth, bgheight, duration})
   return (
     <div>
       <textarea
         value={code} 
+        readOnly={true}
         className="output" 
         id="output"/>
     </div>
@@ -129,12 +130,15 @@ function Generator({title}) {
   }
   const duration = useFormInput(14)
   const bg = `${colorSet.toString()},${colorSet[0]},${colorSet[1]}`
-  const bgwidth = 100 * (colorSet.length + 1)
+  const direction = useFormInput('left')
+  const bgwidth = (direction.value === 'left' || direction.value === 'right') ? (100 * (colorSet.length + 1)) : 100
+  const bgheight = (direction.value === 'left' || direction.value === 'right') ? 100 : (100 * (colorSet.length + 1))
+
   return (
     <div 
       className="generator"
       style={{ backgroundImage: `linear-gradient(90deg, ${bg})`, 
-             backgroundSize: `${bgwidth}vw 100vh`,
+             backgroundSize: `${bgwidth}vw ${bgheight}vh`,
              animationDuration: `${duration.value}s`}}>
       <article 
         className="container">
@@ -167,7 +171,7 @@ function Generator({title}) {
             <strong>Direction</strong>
             <select id="direction"
               className="input--textlike direction"
-              disabled="disabled">
+              {...direction}>
               <option value="left">&#129044; Left</option>
               <option value="right">&#129046; Right</option>
               <option value="up">&#129045; Up</option>
@@ -206,12 +210,12 @@ function Generator({title}) {
             <span>x</span>
             <input type="text" 
               className="input--textlike dimension" 
-              value={`100vh`}
+              value={bgheight + `vh`}
               disabled="disabled"/>
           </div>
         </div>
         <CopyToClipboardButton />
-        <Output bg={bg} bgwidth={bgwidth} duration={duration.value}/>
+        <Output bg={bg} bgwidth={bgwidth} bgheight={bgheight} duration={duration.value}/>
       </article>
     </div>
   )
