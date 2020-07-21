@@ -89,7 +89,12 @@ body {
     vertical-align: middle;
 }
 .color__input {
-    border: 0;
+    border-color: #aaa;
+    border-block: 0 none rgba(0,0,0,0);
+    border-collapse: collapse;
+    border-inline: 0 none rgba(0,0,0,0);
+    border-spacing: 0;
+    border-width: 1px;
     height: 36px;
     padding: 0;
     width: 220px;
