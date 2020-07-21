@@ -166,10 +166,10 @@ function Generator({title}) {
             <select id="direction"
               className="input--textlike direction"
               disabled="disabled">
-              <option>&#129044; Left</option>
-              <option>&#129046; Right</option>
-              <option>&#129045; Up</option>
-              <option>&#129047; Down</option>
+              <option value="left">&#129044; Left</option>
+              <option value="right">&#129046; Right</option>
+              <option value="up">&#129045; Up</option>
+              <option value="down">&#129047; Down</option>
             </select>
           </label>
         </div>
