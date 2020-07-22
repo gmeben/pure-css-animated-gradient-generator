@@ -79,19 +79,42 @@ function CopyToClipboardButton() {
       onClick={copy}>Copy to Clipboard</button>
   )
 }
-function getCode({bg, bgwidth, bgheight, duration}) {
-  return (`.animated-gradient {
-  animation: animateBg ${duration}s linear infinite;
-  background-image: linear-gradient(90deg,${bg});
-  background-size: ${bgwidth}vw ${bgheight}vh;
-}
-@keyframes animateBg
+function getCssKeyframes(direction) {
+  switch(direction) {
+    case 'left':
+      return `@keyframes animateBg {
   0% { background-position: 0% 0%; }
   100% { background-position: 100% 0%; }
-}`)
+}`
+    case 'right':
+      return `@keyframes animateBg {
+  0% { background-position: 100% 0%; }
+  100% { background-position: 0% 0%; }
+}`
+    case 'up':
+      return `@keyframes animateBg {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 0% 100%; }
+}`
+    case 'down':
+      return `@keyframes animateBg {
+  0% { background-position: 0% 100%; }
+  100% { background-position: 0% 0%; }
+}`
+  }
 }
-function Output({bg, bgwidth, bgheight, duration}) {
-  let code = getCode({bg, bgwidth, bgheight, duration})
+function getCode({bg, bgwidth, bgheight, degrees, direction, duration}) {
+  const keyframes = getCssKeyframes(direction)
+  return (`.animated-gradient {
+  animation: animateBg ${duration}s linear infinite;
+  background-image: linear-gradient(${degrees}deg,${bg});
+  background-size: ${bgwidth}vw ${bgheight}vh;
+}
+${keyframes}
+`)
+}
+function Output({bg, bgwidth, bgheight, degrees, direction, duration}) {
+  let code = getCode({bg, bgwidth, bgheight, degrees, direction, duration})
   return (
     <div>
       <textarea
@@ -133,13 +156,15 @@ function Generator({title}) {
   const direction = useFormInput('left')
   const bgwidth = (direction.value === 'left' || direction.value === 'right') ? (100 * (colorSet.length + 1)) : 100
   const bgheight = (direction.value === 'left' || direction.value === 'right') ? 100 : (100 * (colorSet.length + 1))
+  const degrees = (direction.value === 'left' || direction.value === 'right') ? '90' : '0'
 
   return (
     <div 
       className="generator"
-      style={{ backgroundImage: `linear-gradient(90deg, ${bg})`, 
+      style={{ backgroundImage: `linear-gradient(${degrees}deg, ${bg})`, 
              backgroundSize: `${bgwidth}vw ${bgheight}vh`,
-             animationDuration: `${duration.value}s`}}>
+             animationDuration: `${duration.value}s`,
+             animationName: `animateBg-${direction.value}`}}>
       <article 
         className="container">
         <h1 
@@ -215,7 +240,13 @@ function Generator({title}) {
           </div>
         </div>
         <CopyToClipboardButton />
-        <Output bg={bg} bgwidth={bgwidth} bgheight={bgheight} duration={duration.value}/>
+        <Output 
+          bg={bg} 
+          bgwidth={bgwidth} 
+          bgheight={bgheight} 
+          direction={direction.value}
+          degrees={degrees} 
+          duration={duration.value}/>
       </article>
     </div>
   )

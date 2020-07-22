@@ -31,7 +31,10 @@ body {
     margin-bottom: 10px;
 }
 .generator {
-    animation: animateBg 14s linear infinite;
+    animation-name: animateBg-left;
+    animation-duration: 14s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
     align-items: center;
     display: flex;
     padding-top: 2em;
@@ -145,11 +148,35 @@ body {
     width: 314px;
     font-size: 12px;
 }
-@keyframes animateBg {
+@keyframes animateBg-left {
     0% {
         background-position: 0% 0%;
     }
     100% {
         background-position: 100% 0%;
+    }
+}
+@keyframes animateBg-right {
+    0% {
+        background-position: 100% 0%;
+    }
+    100% {
+        background-position: 0% 0%;
+    }
+}
+@keyframes animateBg-up {
+    0% {
+        background-position: 0% 0%;
+    }
+    100% {
+        background-position: 0% 100%;
+    }
+}
+@keyframes animateBg-down {
+    0% {
+        background-position: 0% 100%;
+    }
+    100% {
+        background-position: 0% 0%;
     }
 }
