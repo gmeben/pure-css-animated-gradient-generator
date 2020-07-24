@@ -13,6 +13,7 @@ const presets = [
   ["#ff0000","#ffff00","#00ff00","#00ffff","#0000ff","#ff00ff"]
 ]
 const currentSet = ["#71c66c","#ff8000","#db5779"]
+const isHidden = false
 function PresetsSection({parentFunction}) {
   const [items, setItems] = React.useState(presets)
   return (
@@ -137,6 +138,7 @@ function useFormInput(initialValue) {
 }
 function Generator({title}) {
   const [colorSet, setColorSet] = React.useState(currentSet)
+  const [visibility, setVisibility] = React.useState(isHidden)
   const addColor = () => {
     let newColor = '#' + Math.floor(Math.random()*16777215).toString(16).padStart(6, '0')
     setColorSet(colorSet => [...colorSet, newColor])
@@ -150,6 +152,10 @@ function Generator({title}) {
     const temp = [...colorSet]
     temp[index] = event.target.value
     setColorSet(temp)
+  }
+  const toggleVisibility = (visibility) => {
+    console.log(visibility)
+    setVisibility(!visibility)
   }
   const duration = useFormInput(14)
   const bg = `${colorSet.toString()},${colorSet[0]},${colorSet[1]}`
@@ -165,6 +171,8 @@ function Generator({title}) {
              backgroundSize: `${bgwidth}vw ${bgheight}vh`,
              animationDuration: `${duration.value}s`,
              animationName: `animateBg-${direction.value}`}}>
+      <button className={!visibility ? 'button' : 'button button--faded'} onClick={() => {toggleVisibility(visibility)}}>{!visibility ? `Hide` : `Unhide`}</button>
+      {!visibility ? 
       <article 
         className="container">
         <h1 
@@ -213,6 +221,7 @@ function Generator({title}) {
           degrees={degrees} 
           duration={duration.value}/>
       </article>
+      : null }
     </div>
   )
 }

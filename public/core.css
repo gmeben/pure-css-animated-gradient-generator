@@ -13,7 +13,8 @@ body {
     height: 36px;
     padding-left: 40px;
     padding-right: 40px;
-    transition: background-color 120ms ease;
+    transition: background-color 120ms ease, 
+        opacity 1s ease;
 }
 .button:hover {
     background: #c8e6c8;
@@ -29,6 +30,12 @@ body {
 .button--copy {
     margin-top: 18px;
     margin-bottom: 10px;
+}
+.button--faded {
+    opacity: 0.05;
+}
+.button--faded:hover {
+    opacity: 0.9;
 }
 .generator {
     animation-name: animateBg-left;
