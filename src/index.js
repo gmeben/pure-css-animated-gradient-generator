@@ -154,7 +154,6 @@ function Generator({title}) {
     setColorSet(temp)
   }
   const toggleVisibility = (visibility) => {
-    console.log(visibility)
     setVisibility(!visibility)
   }
   const duration = useFormInput(14)
