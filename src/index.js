@@ -204,41 +204,6 @@ function Generator({title}) {
             </select>
           </label>
         </div>
-        <div className="dimensions">
-          <strong>Dimensions</strong>
-          <label className="dimensions__label" 
-            htmlFor="dimensions-full-screen">
-            <input 
-              id="dimensions-full-screen"
-              type="radio" 
-              name="dimensions" 
-              className="dimensions__input"
-              checked="checked"
-              disabled="disabled"/>
-            <span className="dimensions__label-text">Full Screen</span>
-          </label>
-          <label className="dimensions__label" 
-            htmlFor="dimensions-custom">
-            <input 
-              id="dimensions-custom"
-              type="radio" 
-              name="dimensions" 
-              className="dimensions__input"
-              disabled="disabled"/>
-            <span className="dimensions__label-text">Custom</span>
-          </label>
-          <div>
-            <input type="text" 
-              className="input--textlike dimension" 
-              value={bgwidth + `vw`}
-              disabled="disabled"/>
-            <span>x</span>
-            <input type="text" 
-              className="input--textlike dimension" 
-              value={bgheight + `vh`}
-              disabled="disabled"/>
-          </div>
-        </div>
         <CopyToClipboardButton />
         <Output 
           bg={bg} 
