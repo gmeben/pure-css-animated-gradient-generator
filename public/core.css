@@ -57,6 +57,7 @@ body {
     background: #fff;
     border-radius: 0.25em;
     box-shadow: 0 3px 14px #000;
+    margin-bottom: 1rem;
     min-width: 20rem;
     padding: 2em;
 }
@@ -91,8 +92,7 @@ body {
     width: 50px;
 }
 .color-list {
-    list-style-position: inside;
-    padding: 0;
+    padding: 0 0 0 18px;
 }
 .color {
     margin-bottom: 10px;
