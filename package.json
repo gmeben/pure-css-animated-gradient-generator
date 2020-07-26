@@ -1,6 +1,6 @@
 {
   "name": "pure-css-animated-gradient-generator",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "A tool written in React that generates pure CSS for linearly animated gradients",
   "main": "index.js",
   "dependencies": {
