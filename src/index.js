@@ -109,7 +109,7 @@ function getCode({bg, bgwidth, bgheight, degrees, direction, duration}) {
   return (`.animated-gradient {
   animation: animateBg ${duration}s linear infinite;
   background-image: linear-gradient(${degrees}deg,${bg});
-  background-size: ${bgwidth}vw ${bgheight}vh;
+  background-size: ${bgwidth}% ${bgheight}%;
 }
 ${keyframes}
 `)
@@ -120,7 +120,7 @@ function Output({bg, bgwidth, bgheight, degrees, direction, duration}) {
     <div>
       <textarea
         value={code} 
-        readOnly={true}
+        readOnly={true} 
         className="output" 
         id="output"/>
     </div>
@@ -167,7 +167,7 @@ function Generator({title}) {
     <div 
       className="generator"
       style={{ backgroundImage: `linear-gradient(${degrees}deg, ${bg})`, 
-             backgroundSize: `${bgwidth}vw ${bgheight}vh`,
+             backgroundSize: `${bgwidth}% ${bgheight}%`,
              animationDuration: `${duration.value}s`,
              animationName: `animateBg-${direction.value}`}}>
       <button className={!visibility ? 'button' : 'button button--faded'} onClick={() => {toggleVisibility(visibility)}}>{!visibility ? `Hide` : `Unhide`}</button>
