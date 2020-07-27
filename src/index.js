@@ -14,6 +14,7 @@ const presets = [
 ]
 const currentSet = ["#71c66c","#ff8000","#db5779"]
 const isHidden = false
+
 function PresetsSection({parentFunction}) {
   const [items, setItems] = React.useState(presets)
   return (
@@ -80,6 +81,18 @@ function CopyToClipboardButton() {
       onClick={copy}>Copy to Clipboard</button>
   )
 }
+function Output({bg, bgwidth, bgheight, degrees, direction, duration}) {
+  let code = getCssCodeForOutput({bg, bgwidth, bgheight, degrees, direction, duration})
+  return (
+    <div>
+      <textarea 
+        value={code} 
+        readOnly={true} 
+        className="output" 
+        id="output"/> 
+    </div>
+  )
+}
 function getCssKeyframes(direction) {
   switch(direction) {
     case 'left':
@@ -104,7 +117,7 @@ function getCssKeyframes(direction) {
 }`
   }
 }
-function getCode({bg, bgwidth, bgheight, degrees, direction, duration}) {
+function getCssCodeForOutput({bg, bgwidth, bgheight, degrees, direction, duration}) {
   const keyframes = getCssKeyframes(direction)
   return (`.animated-gradient {
   animation: animateBg ${duration}s linear infinite;
@@ -113,18 +126,6 @@ function getCode({bg, bgwidth, bgheight, degrees, direction, duration}) {
 }
 ${keyframes}
 `)
-}
-function Output({bg, bgwidth, bgheight, degrees, direction, duration}) {
-  let code = getCode({bg, bgwidth, bgheight, degrees, direction, duration})
-  return (
-    <div>
-      <textarea
-        value={code} 
-        readOnly={true} 
-        className="output" 
-        id="output"/>
-    </div>
-  )
 }
 function useFormInput(initialValue) {
   const [value, setValue] = useState(initialValue)  
