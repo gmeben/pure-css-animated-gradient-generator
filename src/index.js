@@ -1,6 +1,5 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import axios from 'axios'
 
 const { useState, useEffect } = React
 const rootElement = document.getElementById('root')
