@@ -4,6 +4,7 @@
   "description": "A tool written in React that generates pure CSS for linearly animated gradients",
   "main": "index.js",
   "dependencies": {
+    "axios": "^0.19.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
   },
