@@ -37,17 +37,12 @@ body {
 .button--faded:hover {
     opacity: 0.9;
 }
-.generator {
-    animation-name: animateBg-left;
-    animation-duration: 14s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    align-items: center;
-    display: flex;
-    padding-top: 2em;
-    box-sizing: border-box;
-    flex-direction: column;
-    min-height: 100vh;
+.button .logo--small {
+    vertical-align: top;
+}
+.logo--small {
+    height: 16px;
+    width: 16px;
 }
 .title {
     max-width: 314px;
@@ -60,6 +55,18 @@ body {
     margin-bottom: 1rem;
     min-width: 20rem;
     padding: 2em;
+}
+.generator {
+    animation-name: animateBg-left;
+    animation-duration: 14s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    align-items: center;
+    display: flex;
+    padding-top: 2em;
+    box-sizing: border-box;
+    flex-direction: column;
+    min-height: 100vh;
 }
 .label {
     font-weight: 400;

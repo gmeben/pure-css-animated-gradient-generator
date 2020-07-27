@@ -128,6 +128,32 @@ function getCssCodeForOutput({bg, bgwidth, bgheight, degrees, direction, duratio
 ${keyframes}
 `)
 }
+function GitHubLogo() {
+  return (
+    <img src="../public/GitHub-Mark-32px.png" 
+      alt="GitHub Logo"
+      className="logo--small" />
+  )
+}
+function PostToGitHubGistButton({colorSet}) {
+  return (
+    <button
+      type="button"
+      className="button button--copy"
+      onClick={() => postCssCodeToGitHubGist({colorSet})}>Post to GitHub Gist <GitHubLogo/></button>
+  )
+}
+function verifyTwoOrMoreColorsAreSelected({colorSet}) {
+  return colorSet.length >= 2
+}
+function postCssCodeToGitHubGist({colorSet}) {
+  if (!verifyTwoOrMoreColorsAreSelected({colorSet})) {
+    alert('Please select 2 or more colors.')
+    return false;
+  }
+  const code = document.getElementById('output').value
+  // Axios post
+}
 function useFormInput(initialValue) {
   const [value, setValue] = useState(initialValue)  
   function handleChange(e) {
@@ -221,6 +247,7 @@ function Generator({title}) {
           direction={direction.value}
           degrees={degrees} 
           duration={duration.value}/>
+        <PostToGitHubGistButton colorSet={colorSet}/>
       </article>
       : null }
     </div>
