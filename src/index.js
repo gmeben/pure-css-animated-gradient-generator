@@ -85,13 +85,13 @@ function CopyToClipboardButton() {
 function Output({bg, bgwidth, bgheight, degrees, direction, duration}) {
   let code = getCssCodeForOutput({bg, bgwidth, bgheight, degrees, direction, duration})
   return (
-    <div>
+    <section>
       <textarea 
         value={code} 
         readOnly={true} 
         className="output" 
         id="output"/> 
-    </div>
+    </section>
   )
 }
 function getCssKeyframes(direction) {
@@ -189,7 +189,7 @@ function Generator({title}) {
           removeFunction={(index)=> removeColor(index)}
           changeFunction={(event, index)=> changeColor(event, index)}/>
           
-        <div>
+        <section>
           <label htmlFor="duration">
             <span><strong>Duration</strong> (seconds)</span>
             <input id="duration" 
@@ -199,8 +199,8 @@ function Generator({title}) {
               max="1000" 
               {...duration}/>
           </label>
-        </div>
-        <div>
+        </section>
+        <section>
           <label htmlFor="direction">
             <strong>Direction</strong>
             <select id="direction"
@@ -212,7 +212,7 @@ function Generator({title}) {
               <option value="down">&#129047; Down</option>
             </select>
           </label>
-        </div>
+        </section>
         <CopyToClipboardButton />
         <Output 
           bg={bg} 
