@@ -205,10 +205,10 @@ function Generator({title}) {
             <select id="direction"
               className="input--textlike direction"
               {...direction}>
-              <option value="left">&#129044; Left</option>
-              <option value="right">&#129046; Right</option>
-              <option value="up">&#129045; Up</option>
-              <option value="down">&#129047; Down</option>
+              <option value="left">← Left</option>
+              <option value="right">→ Right</option>
+              <option value="up">↑ Up</option>
+              <option value="down">↓ Down</option>
             </select>
           </label>
         </section>
