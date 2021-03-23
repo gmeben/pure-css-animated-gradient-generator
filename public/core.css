@@ -109,6 +109,7 @@ body {
     border-collapse: collapse;
     border-inline: 0 none rgba(0,0,0,0);
     border-spacing: 0;
+    border-style: solid;
     border-width: 1px;
     height: 36px;
     padding: 0;
@@ -139,6 +140,13 @@ body {
     padding: 5px;
     width: 314px;
     font-size: 12px;
+}
+
+input[type="color"]::-webkit-color-swatch-wrapper {
+    padding: 0;
+}
+input[type="color"]::-webkit-color-swatch {
+    border-radius: 0;
 }
 @keyframes animateBg-left {
     0% {
