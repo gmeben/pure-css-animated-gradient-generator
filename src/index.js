@@ -54,14 +54,21 @@ function ColorList({colorSet, removeFunction, changeFunction}) {
   )
 }
 function ColorItem({colorValue, removeColor, changeColor}) {
+  const idAttribute = Math.random().toString(36).substr(2, 5)
   return (
     <li className="color">
+      <label 
+        htmlFor={idAttribute}
+        className="color__label">
+        {colorValue}</label>
       <input type="color" 
+        id={idAttribute}
         className="color__input" 
         value={colorValue} 
         onChange={(event) => changeColor(event)} />
       <button type="button" 
         className="color__remove" 
+        aria-label="Remove Color"
         onClick={() => removeColor()}>✖</button>
     </li>
   )
@@ -85,7 +92,7 @@ function Output({bg, bgwidth, bgheight, degrees, direction, duration}) {
   let code = getCssCodeForOutput({bg, bgwidth, bgheight, degrees, direction, duration})
   return (
     <section>
-      <div style={{display: `flex`, justifyContent: `space-between`, alignItems: `end`, margin: `10px 0`}}>
+      <div style={{display: `flex`, justifyContent: `space-between`, alignItems: `flex-end`, margin: `10px 0`}}>
         <label htmlFor="output"><strong>CSS Output</strong></label>
         <CopyToClipboardButton />
       </div>
@@ -171,6 +178,7 @@ function Generator({title}) {
   return (
     <div 
       className="generator"
+      role="main"
       style={{ backgroundImage: `linear-gradient(${degrees}deg, ${bg})`, 
              backgroundSize: `${bgwidth}% ${bgheight}%`,
              animationDuration: `${duration.value}s`,

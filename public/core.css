@@ -1,6 +1,6 @@
 :root {
     --button-color-bg: #fcfcfc;
-    --button-color-border: #aaa;
+    --button-color-border: #777;
 }
 body {
     font-family: sans-serif;
@@ -25,7 +25,7 @@ body {
 }
 .button--add {
     margin-left: 18px;
-    width: 220px;
+    width: 194px;
 }
 .button--faded {
     opacity: 0.05;
@@ -92,12 +92,23 @@ body {
 }
 .color {
     margin-bottom: 10px;
+    position: relative;
 }
 .color__input,
 .color__remove {
     box-sizing: border-box;
     cursor: pointer;
     vertical-align: middle;
+}
+.color__label {
+    background-color: #fafafa;
+    border-left: 1px solid #888;
+    cursor: pointer;
+    font-family: Courier New, monospace;
+    padding: 7px 8px;
+    position: absolute;
+    right: 40px;
+    top: 1.5px;
 }
 .color__input {
     border-color: #aaa;
@@ -109,19 +120,19 @@ body {
     border-width: 1px;
     height: 36px;
     padding: 0;
-    width: 220px;
+    width: 280px;
 }
 .color__remove {
     background-color: var(--button-color-bg);
     border-color: var(--button-color-border);
-    border-radius: 0 10px 10px 0;
+    border-radius: 0 5px 5px 0;
     border-style: solid;
     border-width: 1px 1px 1px 0;
     display: inline-block;
-    height: 36px;
+    height: 34px;
     text-align: center;
     transition: background-color 200ms ease;
-    width: 36px;
+    width: 34px;
 }
 .color__remove:hover {
     background-color: #dbd1d3;
@@ -130,7 +141,7 @@ body {
     background-color: #eee;
     border-radius: 5px;
     border: 1px solid var(--button-color-border);
-    font-family: Courier New;
+    font-family: Courier New, monospace;
     height: 200px;
     max-width: 324px;
     padding: 5px;
