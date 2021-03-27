@@ -27,10 +27,6 @@ body {
     margin-left: 18px;
     width: 220px;
 }
-.button--copy {
-    margin-top: 18px;
-    margin-bottom: 10px;
-}
 .button--faded {
     opacity: 0.05;
 }
@@ -136,12 +132,15 @@ body {
     border: 1px solid var(--button-color-border);
     font-family: Courier New;
     height: 200px;
-    max-width: 314px;
+    max-width: 324px;
     padding: 5px;
-    width: 314px;
+    width: 324px;
     font-size: 12px;
 }
-
+.output:focus {
+    box-shadow: 0 0 5px 1px green;
+    outline: none;
+}
 input[type="color"]::-webkit-color-swatch-wrapper {
     padding: 0;
 }
