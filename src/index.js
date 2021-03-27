@@ -86,7 +86,7 @@ function Output({bg, bgwidth, bgheight, degrees, direction, duration}) {
   return (
     <section>
       <div style={{display: `flex`, justifyContent: `space-between`, alignItems: `end`, margin: `10px 0`}}>
-        <label for="output"><strong>CSS Output</strong></label>
+        <label htmlFor="output"><strong>CSS Output</strong></label>
         <CopyToClipboardButton />
       </div>
       <textarea 
