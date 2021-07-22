@@ -233,7 +233,7 @@ function Generator({title}) {
           duration={duration.value}/>
         <footer>
           <p>
-            <small>Created by <a href="https://granteben.info">Grant Eben</a>.</small><br/>
+            <small>Created by <a href="https://granteben.com">Grant Eben</a>.</small><br/>
             <small>Open Source on <a href="https://github.com/gmeben/pure-css-animated-gradient-generator">GitHub</a> and <a href="https://gitlab.com/gmeben/pure-css-animated-gradient-generator">GitLab</a></small>
           </p>
         </footer>
