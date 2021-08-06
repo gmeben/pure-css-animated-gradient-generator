@@ -1,6 +1,6 @@
 # Pure CSS Animated Gradient Generator
 
-This is a web tool intended to be ran in a web browser. It's written in React and generates pure copy-and-pasteable CSS for linearly animated gradients.
+This is a web tool intended to be ran in a web browser. It's written in React and generates pure copy-and-pasteable CSS for linearly animated gradients in HTML.
 
 ## Local Demo
 
